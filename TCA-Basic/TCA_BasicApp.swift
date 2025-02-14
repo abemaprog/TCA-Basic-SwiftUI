@@ -15,21 +15,7 @@ struct TCA_BasicApp: App {
             CounterView(
                 store: Store(
                     initialState: CounterState(),
-                    reducer: {
-                        Reduce { state, action in
-                            switch action {
-                            case .increment:
-                                state.count += 1
-                                return .none
-                            case .decrement:
-                                state.count -= 1
-                                return .none
-                            case .reset:
-                                state.count = 0
-                                return .none
-                            }
-                        }
-                    }
+                    reducer: { counterReducer }
                 )
             )
         }
